@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                echo 'testing connection 2!'
+                echo 'testing connection 3!'
             }
         }
     }
