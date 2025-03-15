@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('imageBuild'){
             steps {
-                sh "docker build -t ${DOCKER_HUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_TAG}"
+                sh "docker build -t ${DOCKER_HUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_TAG} ."
             }
 
         }
