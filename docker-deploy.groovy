@@ -13,11 +13,15 @@ pipeline {
     stages {
         stage('runContainer') {
             steps {
-                sshagent(['jenkins-private-key']) {
-                    def runContainer = "docker run -d -p 8080:8080 --name $CONTAINER_NAME $params.IMAGE_URL"
-                    sh "ssh ubuntu@$EC2_IP $runContainer"
+                script{
+                    sshagent(['jenkins-private-key']) {
+                        def runContainer = "docker run -d -p 8080:8080 --name $CONTAINER_NAME $params.IMAGE_URL"
+                        sh "ssh -o StrictHostKeyChecking=no ubuntu@$EC2_IP $runContainer"
+                    }
                 }
             }
         }
     }
 }
+
+

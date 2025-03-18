@@ -41,5 +41,4 @@ pipeline {
             echo 'Something wrong ('
         }
     }
-
 }
