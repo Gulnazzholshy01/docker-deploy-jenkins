@@ -32,7 +32,7 @@ pipeline {
     post {
         success {
             echo 'Docker image has been built, pushed to DockerHub and now triggering deploy'
-            build job: 'docker-deploy'
+            build job: 'docker-deploy',
                 parameters: [
                     string (name: 'IMAGE_URL', value: "$IMAGE_URL" )
                 ]
